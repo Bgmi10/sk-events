@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
-/* Light, elegant palette taken from their feed: white and pearl grounds, gold from the SK Events logo. */
+/* Palette taken from the SK Events logo: black, white and its red. */
 @theme {
-  --color-paper: #fcfaf6;   /* page */
-  --color-pearl: #f2ede4;   /* alternate band */
-  --color-ink: #2a2019;     /* text */
-  --color-stone: #6f6558;   /* muted text */
-  --color-gold: #b8955a;    /* fills and hairlines */
-  --color-bronze: #85622c;  /* gold used as text or hover, readable on light */
+  --color-paper: #ffffff;   /* page */
+  --color-pearl: #f3f3f3;   /* alternate band */
+  --color-ink: #0a0a0a;     /* text, logo black */
+  --color-stone: #5c5c5c;   /* muted text */
+  --color-red: #d8091b;     /* logo red: buttons, active states, hairlines */
+  --color-redDeep: #a80615; /* red used as text or hover */
 }
 @theme inline {
   /* Instrument Serif and Albert Sans have no Arabic glyphs, so Arabic falls through to Noto Naskh automatically. */
@@ -17,13 +17,7 @@
 
 html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
 body { background: var(--color-paper); color: var(--color-ink); }
-:focus-visible { outline: 2px solid var(--color-bronze); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--color-red); outline-offset: 3px; }
 
-/* The one orchestrated moment: the three arches rise in sequence on load. */
-.rise { animation: rise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i) * 140ms); }
-@keyframes rise { from { opacity: 0; transform: translateY(56px); } to { opacity: 1; transform: none; } }
-@media (prefers-reduced-motion: reduce) {
-  .rise { animation: none; }
-  html { scroll-behavior: auto; }
-}
-
+/* No animations in this version. */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
