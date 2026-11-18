@@ -5,9 +5,9 @@ import "@fontsource-variable/noto-naskh-arabic";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SK Events | Wedding photography and video, Sharjah",
+  title: "SK Events | Event planning, photography and film, UAE",
   description:
-    "Wedding photography, video production and product photography from Sharjah, UAE and Punjab, Pakistan.",
+    "SK Events plans, films and photographs weddings, concerts, corporate galas and fashion shows across the UAE.",
   robots: { index: false }, // sample site: remove when the client approves it
 };
 
