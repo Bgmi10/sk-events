@@ -1,231 +1,299 @@
-// Contact details come from the SK Events Facebook page: confirm with the client before launch.
+// SK Events: copy for both languages. Facts that the client should confirm are marked CONFIRM.
 export type Lang = "en" | "ar";
 
 export const WA_NUMBER = "971564734640";
 export const PHONE_DISPLAY = "+971 56 473 4640";
 export const EMAIL = "skeventsshj@gmail.com";
-export const IG_URL = "https://www.instagram.com/skevents1";
+export const IG_URL = "https://www.instagram.com/skevents1/";
 export const waLink = (text: string) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
 
 type Img = { src: string; alt: string; ratio: string };
 const img = (n: string, alt: string, ratio = "aspect-[4/5]"): Img => ({ src: `/images/sk-${n}.jpg`, alt, ratio });
 
-// One image per service card, same order as services.items (8 cards).
-export const SERVICE_IMAGES = [
-  "/images/sk-04.jpg",         // wedding and nikah
-  "/images/events/meydan.jpg", // event photography and video
-  "/images/events/gala.jpg",   // corporate and commercial media
-  "/images/sk-09.jpg",         // creative photoshoots
-  "/images/sk-08.jpg",         // post-production
-  "/images/sk-01.jpg",         // event planning and decor
-  "/images/events/rixos.jpg",  // LED screens and live streaming
-  "/images/events/talkshow.jpg", // studio and talk show production
+export const HERO_IMAGE = { src: "/images/sk-01.jpg", alt: "White arched wedding stage with chandeliers and hydrangeas" };
+export const ABOUT_IMAGES = [
+  { src: "/images/sk-01.jpg", alt: "Arched wedding stage decor" },
+  { src: "/images/events/rixos-new-year.jpg", alt: "LED screen stage at a New Year party in Dubai" },
 ];
 
-// One photo per event card, same order as events.items (10 cards).
-export const EVENT_IMAGES = ["gala", "rixos", "ballet", "expo", "meraki", "mehtab", "talkshow", "meydan", "ora", "concert"].map(
-  (n) => `/images/events/${n}.jpg`,
-);
+export const EVENT_IMAGES = [
+  "/images/events/mehtab-virk.jpg",
+  "/images/events/talk-show.jpg",
+  "/images/events/rixos-new-year.jpg",
+  "/images/events/boston-scientific.jpg",
+  "/images/events/ora-club.jpg",
+  "/images/events/meydan-vip.jpg",
+  "/images/events/meraki-fashion.jpg",
+  "/images/events/russian-ballet.jpg",
+  "/images/events/live-concert.jpg",
+];
 
-export const ABOUT_IMAGE = "/images/about.jpg";
-
-// Logo for each name in clients.names, same order. null = no logo supplied, shown as text.
-export const CLIENT_LOGOS: (string | null)[] = [
-  "/images/clients/meydan-freezone.png",
-  "/images/clients/dubai-airport.png",
-  "/images/clients/novotel.png",
-  null, // Sharjah Golf & Shooting Club: no logo on the client's slide
-  "/images/clients/aasa.png",
-  "/images/clients/emirates-short-film-festival.png",
-  "/images/clients/be-unique.png",
-  "/images/clients/vibe-creations.png",
-  "/images/clients/digital-fashion-leading.png",
-  "/images/clients/tepa.png",
-  "/images/clients/miss-cosmos-queen.png",
-  "/images/clients/expo-2020.png",
-  "/images/clients/holly-dreams.png",
+// bg is each logo's own background colour so the tiles look clean
+export const CLIENTS = [
+  { name: "AASA CP Holding Company", file: "aasa", w: 423, h: 174, bg: "#ffffff" },
+  { name: "Be Unique", file: "be-unique", w: 400, h: 240, bg: "#000000" },
+  { name: "Digital Fashion Leading", file: "digital-fashion-leading", w: 272, h: 280, bg: "#000000" },
+  { name: "Dubai International Airport", file: "dubai-airport", w: 334, h: 176, bg: "#f7d62c" },
+  { name: "Emirates Short Film Festival", file: "emirates-short-film-festival", w: 204, h: 180, bg: "#000000" },
+  { name: "Expo 2020 Dubai", file: "expo-2020", w: 309, h: 231, bg: "#ffffff" },
+  { name: "Holly Dreams Productions", file: "holly-dreams", w: 308, h: 248, bg: "#010101" },
+  { name: "Meydan Freezone", file: "meydan-freezone", w: 520, h: 236, bg: "#000000" },
+  { name: "Miss Cosmos Queen", file: "miss-cosmos-queen", w: 264, h: 300, bg: "#000002" },
+  { name: "Novotel Hotels & Resorts", file: "novotel", w: 407, h: 180, bg: "#ffffff" },
+  { name: "TEPA Tamil Entrepreneurs", file: "tepa", w: 292, h: 294, bg: "#ffffff" },
+  { name: "VIBE Creations Media LLC", file: "vibe-creations", w: 423, h: 231, bg: "#ffffff" },
 ];
 
 export const GALLERY: Img[] = [
   img("01", "Arched white wedding stage with chandeliers and white hydrangeas"),
   img("11", "Groom in a black and gold bisht seated beneath a chandelier", "aspect-square"),
   img("02", "Bride in a silk robe beside her gown by the window", "aspect-[3/4]"),
-  img("16", "Yellow and orange haldi backdrop with a marigold garland", "aspect-square"),
-  img("03", "Strapless satin gown and veil on a panelled wall", "aspect-[3/4]"),
-  img("13", "Groom holding a mabkhara with rising incense smoke"),
-  img("07", "Ring box, perfume, invitation and white ranunculus on a windowsill", "aspect-square"),
   img("04", "Bride holding a white peony bouquet"),
-  img("06", "Beaded lace gown on a mannequin in a dark room", "aspect-square"),
   img("14", "Groom seated with his ghutra drawn across his face", "aspect-[3/4]"),
   img("09", "Perfume, invitation card and pearl heels", "aspect-square"),
-  img("10", "Bride holding a perfume bottle in a beaded gown"),
-  img("08", "Ring exchange, backlit, hands almost touching", "aspect-square"),
-  img("05", "Hands resting on a bridal robe hanging from a named hanger", "aspect-[3/4]"),
-  img("17", "Detail of a bisht sleeve with gold trim and tassels", "aspect-square"),
-  img("15", "Couple in silhouette, a kiss on the forehead"),
 ];
 
+// Icon names used by the services cards (drawn in Site.tsx)
+export const SERVICE_ICONS = ["gem", "camera", "building", "star", "film", "screen"] as const;
+
 const en = {
-  brand: "SK Events",
-  tag: "Photography and video production",
-  nav: { about: "About", services: "Services", events: "Events", work: "Work", contact: "Contact" },
+  brand: "SK EVENTS",
+  brandSub: "UAE • Est. 2012",
+  nav: { home: "Home", about: "Our Legacy", services: "Services", portfolio: "Portfolio", clients: "Clients", leadership: "Leadership", contact: "Contact" },
+  cta: "Book Consultation",
   hero: {
-    title: "Wedding photography and video in Sharjah",
-    sub: "SK Events covers weddings, haldi and engagement days, and shoots product photography for brands. We work from Sharjah and Punjab, Pakistan.",
-    cta: "Message us on WhatsApp",
-    secondary: "See the work",
-    waText: "Hello SK Events, I’d like to ask about your event, photography and video services.",
+    badge: "Established in 2012 • Serving All Over UAE",
+    title1: "Crafting Iconic Events &",
+    title2: "Timeless Photography",
+    sub: "From grand royal weddings and high-profile corporate galas in Dubai and Sharjah to cinematic visual storytelling, SK Events turns your vision into unforgettable reality.",
+    plan: "Plan Your Event",
+    explore: "Explore @skevents1",
+    waText: "Hello SK Events, I’d like to ask about your event and photography services.",
+    // CONFIRM: these figures come from the draft page and are not backed by the company profile.
+    stats: [
+      { value: "14+", label: "Years in UAE (Since 2012)" },
+      { value: "1,200+", label: "Luxury Events Executed" },
+      { value: "7", label: "Emirates Covered" },
+      { value: "100%", label: "Client Satisfaction" },
+    ],
   },
-  band: ["Weddings and Nikah", "Events", "Corporate media", "Photoshoots", "Post-production", "LED screens"],
   about: {
-    title: "One team for the event and the film of it",
-    p1: "SK Events is a media production and event company. We shoot photography and video, produce events, and supply the screens and sound that make a room feel finished.",
-    p2: "Our work ranges from private weddings to concerts and corporate evenings. Pre-production, filming and editing all happen in-house, so what we promise at the first meeting is what you see in the final video.",
-    points: [
-      ["In-house team", "From pre-production to post, everything is handled by our own team."],
-      ["Professional kit", "Sony A7 IV, Canon 5D and 80D, a DJI drone, gimbals, cinema lighting kits and monopods."],
-      ["Creative direction", "We don’t just record your event. We build a story around it."],
-      ["Fast turnaround", "Colour grading, sound mixing and export in every format you need."],
-      ["Studio or venue", "We shoot in our custom-built studio or at your location."],
+    kicker: "Who We Are",
+    title: "Setting the Benchmark for Excellence in the UAE",
+    p1a: "Established in ", p1b: "2012", p1c: ", ", p1d: "SK EVENTS", p1e: " has grown into one of the UAE’s most trusted names in bespoke event management and luxury photography.",
+    p2a: "Led under the visionary leadership of CEO ", p2b: "Sunny Janjowa", p2c: " and Managing Director ", p2d: "Kafeel Saeed Azhar", p2e: ", we blend Arabian hospitality with international production standards.",
+    p3: "We are a media production and events company specialising in photography and videography. We bring creativity, professionalism and technical skill to every project, and our goal is to capture the moments that matter to our clients.",
+    badgeTitle: "Trusted Since 2012",
+    badgeSub: "Dubai • Abu Dhabi • Sharjah • All UAE",
+    whyKicker: "Why SK Events",
+    why: [
+      { title: "Fully in-house media team", text: "From pre-production to post, our own team handles everything." },
+      { title: "Professional equipment", text: "Sony A7 IV, Canon 5D and 80D, a DJI drone, gimbals and cinematic lighting kits." },
+      { title: "Creative direction", text: "We don’t just record your event. We build a story around it." },
+      { title: "Editing excellence", text: "Fast turnaround with colour grading, sound mixing and export in multiple formats." },
+      { title: "On-site and studio coverage", text: "At our studio or your venue, with the same energy and precision." },
     ],
   },
   services: {
-    title: "What we do",
+    kicker: "Our Expertise",
+    title: "Premier Services Across UAE",
     items: [
-      { title: "Weddings and Nikah", text: "Photography and film for the getting-ready, the ceremony and the portraits, from nikah to reception." },
-      { title: "Event photography and videography", text: "Cultural events, corporate functions and private parties, with full video coverage." },
-      { title: "Corporate and commercial media", text: "Brand shoots, adverts, product launches and company events." },
-      { title: "Creative photoshoots", text: "Fashion, portrait and product photography built around your concept." },
-      { title: "Post-production", text: "Editing, colour grading, sound design and visual effects." },
-      { title: "Event planning and decor", text: "Stage, styling and table setups managed from start to finish." },
-      { title: "LED screens and live streaming", text: "SMD screens, multi-camera filming and live streams for concerts and big nights." },
-      { title: "Studio and talk show production", text: "Lighting, sound, multi-camera recording and set design in our own studio." },
+      { title: "Luxury Weddings & Nikah", text: "Bespoke floral stages, royal entrances, destination weddings across 5-star UAE venues." },
+      { title: "Photography & Cinematography", text: "Editorial wedding photography, same-day event edits, aerial drone videography." },
+      { title: "Corporate & Gala Events", text: "Product launches, award ceremonies, exhibitions and VIP gala dinners." },
+      { title: "Creative Photoshoots", text: "Fashion, portrait and product photography shaped around each client." },
+      { title: "Post-Production & Editing", text: "Colour grading, sound design and visual effects for the final film." },
+      { title: "LED Screens & Live Streaming", text: "SMD LED screens, live camera feeds and streaming for concerts and events." },
     ],
   },
-  events: {
-    title: "Recent events",
-    intro: "A selection of the events we have covered or produced.",
+  portfolio: {
+    kicker: "Visual Gallery",
+    title: "Captured Moments",
+    follow: "Follow @skevents1",
     items: [
-      { title: "Boston Scientific annual corporate gala", meta: "2025", text: "Stage and venue setup, keynote recording, branding displays, staff portraits and group photos, and a corporate highlight video." },
-      { title: "New Year party, Rixos Dubai", meta: "2024", text: "LED screen installation and camera coverage for the New Year party, with every panel and camera angle planned from setup to show." },
-      { title: "Authentic Russian Ballet, Dance Fest", meta: "2024", text: "Full coverage of a cultural performance with international artists: stage filming, interviews, rehearsals and post-performance highlights, edited with cinematic scoring." },
-      { title: "Indian Pavilion launch, Dubai Expo Center", meta: "2022–2024", text: "Selected to cover the launch: traditional performances, speeches by dignitaries and the unveiling. Multi-camera coverage, drone shots and live-action editing, used for documentation, media and archives." },
-      { title: "MERAKI fashion show, season 2", meta: "Dubai, 2023", text: "Every segment from ramp walks to backstage, delivered as highlight reels, teaser clips and fashion montages." },
-      { title: "Mehtab Virk live in Dubai", meta: "2022", text: "Media and production team for a live concert and turban-styling competition: stage visuals, audience shots, behind the scenes, full filming and promo reels." },
-      { title: "Talk show, Emirates Short Film Festival", meta: "2021", text: "An in-house talk show on the making of films, recorded in our studio setup with lighting rigs, sound engineering, multi-camera recording and a set designed for the theme." },
-      { title: "Better Together, Meydan Freezone", meta: "VIP party", text: "Multi-angle video, candid and group photography and branded visuals for social media and internal use." },
-      { title: "Ora Club Dubai", meta: "Dubai", text: "We organised the event and captured its highlights, with a table setup for the client and every detail managed from start to finish." },
-      { title: "Arijit Singh live concert", meta: "UAE", text: "SMD (LED) screens, photography, video production and a live stream of the full concert." },
+      { cat: "Concert • 2022", title: "Mehtab Virk Live in Dubai", text: "Stage visuals, audience shots, behind the scenes and full concert filming." },
+      { cat: "Talk Show • 2021", title: "Filmmakers Talk Show", text: "Recorded for the Emirates Short Film Festival with multi-camera and studio sound." },
+      { cat: "New Year • 2024", title: "Rixos Hotel Dubai", text: "LED screen installation and camera coverage for the New Year party." },
+      { cat: "Corporate Gala • 2025", title: "Boston Scientific Annual Gala", text: "Event setup, keynotes, staff portraits and a corporate highlight video." },
+      { cat: "Nightlife", title: "Ora Club Dubai", text: "Organised and captured, with a luxury table setup and every detail managed." },
+      { cat: "VIP Event", title: "“Better Together”, Meydan Freezone", text: "Multi-angle video, candid and group photography and branded visuals." },
+      { cat: "Fashion Show • 2023", title: "MERAKI Fashion Show, Season 2", text: "The runway, backstage, highlight reels and teaser clips." },
+      { cat: "Cultural Festival • 2024", title: "Authentic Russian Ballet", text: "Stage filming, interviews, rehearsals and post-show highlights." },
+      { cat: "Live Concert", title: "SMD LED Screens & Live Stream", text: "Photography, video production and live streaming for a concert in the UAE." },
     ],
   },
-  clients: {
-    title: "Trusted by",
-    names: ["Meydan Freezone", "Dubai International Airport", "Novotel Hotel & Resort", "Sharjah Golf & Shooting Club", "AASA CP Holding Company", "Emirates Short Film Festival", "Be Unique Group", "VIBE Creations Media", "Digital Fashion Leading", "TEPA Tamil Entrepreneurs", "Miss Cosmos Queen", "Expo 2020 Dubai", "Holly Dreams Productions"],
+  work: { kicker: "Weddings & Portraits", title: "Wedding and Portrait Gallery", close: "Close", prev: "Previous", next: "Next", open: "Open photo" },
+  clients: { kicker: "Trusted By", title: "Clients We’ve Worked With" },
+  collab: {
+    kicker: "Partnerships",
+    title: "Let’s Work Together",
+    intro: "We are open to partnerships, long-term vendor work and contract jobs with:",
+    items: [
+      "Wedding and event planners",
+      "Fashion show organisers",
+      "Cultural councils",
+      "Corporate PR and marketing teams",
+      "Government and institutional bodies",
+      "Hotels, venues and real estate developers",
+    ],
   },
-  work: { title: "Wedding photography", close: "Close", prev: "Previous", next: "Next", open: "Open photo" },
-  partner: {
-    title: "Work with us",
-    text: "We take on one-off events, long-term vendor partnerships and contract work for:",
-    list: ["Wedding and event planners", "Fashion show organisers", "Cultural councils", "Corporate PR and marketing teams", "Government and institutions", "Hotels, venues and real estate developers"],
-    close: "Let us bring your next event to life with professionalism, creativity and cinematic mastery.",
+  leadership: {
+    kicker: "Executive Leadership • Est. 2012",
+    title: "The Visionaries Behind SK EVENTS",
+    people: [
+      { initials: "SJ", role: "Chief Executive Officer (CEO)", name: "Sunny Janjowa", text: "Leading creative direction, luxury event architecture and client partnerships across the UAE since 2012." },
+      { initials: "KSA", role: "Managing Director (MD)", name: "Kafeel Saeed Azhar", text: "Spearheading strategic operations, corporate event execution and media production quality across the Emirates." },
+    ],
   },
   contact: {
-    title: "Ask about your date",
-    intro: "Tell us what you need and when. We reply on WhatsApp.",
-    name: "Name", phone: "Phone or WhatsApp", service: "What do you need", date: "Date", place: "City or venue", message: "Anything else",
+    kicker: "Get In Touch",
+    title: "Let’s Plan Your Next Event",
+    intro: "Reach out directly to our team for wedding planning, corporate events or photography bookings in the UAE.",
+    labels: { ceo: "CEO", md: "Managing Director", hq: "Headquarters", phone: "Phone / WhatsApp", email: "Email", ig: "Instagram" },
+    hq: "Dubai & Sharjah, UAE (Est. 2012)",
+    whatsapp: "Message us on WhatsApp",
+    name: "Your Name *", namePh: "Enter full name",
+    phone: "Phone / WhatsApp (UAE) *",
+    service: "Service Required",
     services: [
-      { value: "wedding", label: "Wedding or Nikah photography and video" },
-      { value: "video", label: "Event or corporate coverage" },
-      { value: "product", label: "Photoshoot or product photography" },
-      { value: "other", label: "Event planning, LED screens or other" },
+      { value: "wedding", label: "Wedding & Nikah Management" },
+      { value: "video", label: "Photography & Cinematography" },
+      { value: "product", label: "Creative or Product Photoshoot" },
+      { value: "other", label: "Event Planning, Corporate Event or Gala" },
     ],
-    submit: "Send enquiry", sending: "Sending",
-    done: "Enquiry received. We’ll reply on WhatsApp.",
+    emirate: "Emirate / Location",
+    emirates: [
+      { value: "Dubai", label: "Dubai" },
+      { value: "Sharjah", label: "Sharjah" },
+      { value: "Abu Dhabi", label: "Abu Dhabi" },
+      { value: "Ajman / RAK / Fujairah", label: "Ajman / RAK / Fujairah" },
+    ],
+    date: "Event Date", message: "Event Details", messagePh: "Tell us about your event...",
+    submit: "Send Inquiry to SK Events", sending: "Sending",
+    done: "Inquiry received. We’ll reply on WhatsApp.",
     error: "Couldn’t send. Check your phone number, or message us on WhatsApp.",
-    areas: "Sharjah, United Arab Emirates and Punjab, Pakistan",
   },
+  footer: { line: "Established 2012 • Premier Event Management & Photography in UAE", ceo: "CEO", md: "MD" },
 };
 type Copy = typeof en;
 
 const ar: Copy = {
-  brand: "SK Events",
-  tag: "تصوير وإنتاج فيديو",
-  nav: { about: "من نحن", services: "الخدمات", events: "الفعاليات", work: "الأعمال", contact: "تواصل" },
+  brand: "SK EVENTS",
+  brandSub: "الإمارات • منذ 2012",
+  nav: { home: "الرئيسية", about: "مسيرتنا", services: "الخدمات", portfolio: "الأعمال", clients: "العملاء", leadership: "القيادة", contact: "تواصل" },
+  cta: "احجزوا استشارة",
   hero: {
-    title: "تصوير أعراس وفيديو في الشارقة",
-    sub: "نغطي الأعراس وحفلات الحنّاء والخطوبة، ونصوّر المنتجات للعلامات التجارية. نعمل من الشارقة ومن البنجاب في باكستان.",
-    cta: "راسلونا على واتساب",
-    secondary: "شاهدوا أعمالنا",
-    waText: "مرحباً SK Events، أودّ الاستفسار عن خدمات تنظيم الفعاليات والتصوير والفيديو.",
+    badge: "تأسست عام 2012 • نخدم جميع أنحاء الإمارات",
+    title1: "نصنع فعاليات لا تُنسى",
+    title2: "وتصويراً خالداً",
+    sub: "من حفلات الزفاف الملكية وفعاليات الشركات الكبرى في دبي والشارقة إلى السرد البصري السينمائي، تحوّل SK Events رؤيتكم إلى واقع لا يُنسى.",
+    plan: "خططوا لفعاليتكم",
+    explore: "تابعوا @skevents1",
+    waText: "مرحباً SK Events، أودّ الاستفسار عن خدمات الفعاليات والتصوير.",
+    stats: [
+      { value: "14+", label: "سنة في الإمارات (منذ 2012)" },
+      { value: "1,200+", label: "فعالية فاخرة نُفّذت" },
+      { value: "7", label: "إمارات نغطيها" },
+      { value: "100%", label: "رضا العملاء" },
+    ],
   },
-  band: ["الأعراس والنكاح", "الفعاليات", "إنتاج الشركات", "جلسات التصوير", "ما بعد الإنتاج", "شاشات LED"],
   about: {
-    title: "فريق واحد للفعالية وللفيلم الذي يوثّقها",
-    p1: "SK Events شركة إنتاج إعلامي وتنظيم فعاليات. نصوّر الصور والفيديو وننظّم الفعاليات ونوفّر الشاشات والصوت التي تكمل المشهد.",
-    p2: "تمتد أعمالنا من الأعراس الخاصة إلى الحفلات الموسيقية وأمسيات الشركات. التحضير والتصوير والمونتاج كلها داخل الفريق، فما نعدكم به في أول لقاء هو ما تشاهدونه في الفيديو النهائي.",
-    points: [
-      ["فريق متكامل", "من التحضير حتى ما بعد الإنتاج، يتولى فريقنا كل شيء."],
-      ["معدات احترافية", "Sony A7 IV وCanon 5D و80D وطائرة DJI ومثبّتات وإضاءة سينمائية وحوامل أحادية."],
-      ["رؤية إبداعية", "لا نكتفي بتسجيل فعاليتكم، بل نبني حولها قصة."],
-      ["تسليم سريع", "تصحيح الألوان ومعالجة الصوت والتصدير بكل الصيغ التي تحتاجونها."],
-      ["استوديو أو موقعكم", "نصوّر في استوديونا المجهّز أو في مكان مناسبتكم."],
+    kicker: "من نحن",
+    title: "نضع معيار التميز في الإمارات",
+    p1a: "تأسست ", p1b: "SK EVENTS", p1c: " عام ", p1d: "2012", p1e: "، وأصبحت من أكثر الأسماء ثقة في الإمارات في تنظيم الفعاليات الخاصة والتصوير الفاخر.",
+    p2a: "بقيادة الرئيس التنفيذي ", p2b: "Sunny Janjowa", p2c: " والمدير العام ", p2d: "Kafeel Saeed Azhar", p2e: "، نمزج بين الضيافة العربية ومعايير الإنتاج العالمية.",
+    p3: "نحن شركة إنتاج إعلامي وتنظيم فعاليات متخصصة في التصوير الفوتوغرافي والفيديو. نضع الإبداع والاحترافية والخبرة التقنية في كل مشروع، وهدفنا توثيق اللحظات التي تهمّ عملاءنا.",
+    badgeTitle: "موثوقون منذ 2012",
+    badgeSub: "دبي • أبوظبي • الشارقة • كل الإمارات",
+    whyKicker: "لماذا SK Events",
+    why: [
+      { title: "فريق إعلامي متكامل", text: "من التحضير إلى المونتاج، يتولى فريقنا كل شيء بنفسه." },
+      { title: "معدات احترافية", text: "Sony A7 IV وCanon 5D و80D وطائرة DJI ومثبتات حركة ومعدات إضاءة سينمائية." },
+      { title: "رؤية إبداعية", text: "لا نكتفي بتسجيل مناسبتكم، بل نصنع حولها قصة." },
+      { title: "مونتاج متقن", text: "تسليم سريع مع تصحيح الألوان ومزج الصوت والتصدير بصيغ متعددة." },
+      { title: "تغطية في الموقع وفي الاستوديو", text: "في الاستوديو أو في مكان مناسبتكم، بالحماس والدقة نفسيهما." },
     ],
   },
   services: {
-    title: "ماذا نقدّم",
+    kicker: "خبرتنا",
+    title: "خدمات متميزة في أنحاء الإمارات",
     items: [
-      { title: "الأعراس وعقد النكاح", text: "تصوير وفيديو للتجهّز والمراسم والبورتريه، من عقد النكاح حتى حفل الاستقبال." },
-      { title: "تصوير وفيديو الفعاليات", text: "المناسبات الثقافية وفعاليات الشركات والحفلات الخاصة مع تغطية فيديو كاملة." },
-      { title: "إنتاج إعلامي للشركات", text: "تصوير العلامات التجارية والإعلانات وإطلاق المنتجات وفعاليات الشركات." },
-      { title: "جلسات تصوير إبداعية", text: "تصوير الأزياء والبورتريه والمنتجات وفق فكرتكم." },
-      { title: "ما بعد الإنتاج", text: "مونتاج وتصحيح ألوان وتصميم صوت ومؤثرات بصرية." },
-      { title: "تنظيم الفعاليات والديكور", text: "المسرح والتنسيق وتجهيز الطاولات من البداية حتى النهاية." },
-      { title: "شاشات LED والبث المباشر", text: "شاشات SMD وتصوير بعدة كاميرات وبث مباشر للحفلات والأمسيات الكبيرة." },
-      { title: "إنتاج الاستوديو والبرامج الحوارية", text: "إضاءة وصوت وتسجيل بعدة كاميرات وتصميم ديكور في استوديونا الخاص." },
+      { title: "الأعراس الفاخرة والنكاح", text: "منصات زهور مصممة خصيصاً، وإطلالات ملكية، وحفلات زفاف في أفخم قاعات الإمارات." },
+      { title: "التصوير والسينماتوغرافي", text: "تصوير أعراس بأسلوب مجلات، ومونتاج في اليوم نفسه، وتصوير جوي بالطائرة المسيّرة." },
+      { title: "فعاليات الشركات والحفلات الكبرى", text: "إطلاق المنتجات وحفلات الجوائز والمعارض وعشاءات كبار الضيوف." },
+      { title: "جلسات تصوير إبداعية", text: "تصوير أزياء وبورتريه ومنتجات بما يناسب كل عميل." },
+      { title: "المونتاج وما بعد الإنتاج", text: "تصحيح الألوان وتصميم الصوت والمؤثرات البصرية للفيلم النهائي." },
+      { title: "شاشات LED والبث المباشر", text: "شاشات SMD LED ولقطات حية وبث مباشر للحفلات والمناسبات." },
     ],
   },
-  events: {
-    title: "فعاليات حديثة",
-    intro: "مختارات من الفعاليات التي غطّيناها أو أنتجناها.",
+  portfolio: {
+    kicker: "المعرض المرئي",
+    title: "لحظات موثّقة",
+    follow: "تابعوا @skevents1",
     items: [
-      { title: "حفل بوسطن ساينتفيك السنوي للشركة", meta: "2025", text: "تجهيز المسرح والقاعة وتسجيل الكلمات الرئيسية وعرض الهوية البصرية وصور الموظفين والصور الجماعية وفيديو ملخّص للشركة." },
-      { title: "حفل رأس السنة في ريكسوس دبي", meta: "2024", text: "تركيب شاشات LED وتغطية بالكاميرات لحفل رأس السنة، مع تخطيط كل شاشة وزاوية تصوير من التجهيز حتى العرض." },
-      { title: "الباليه الروسي الأصيل، مهرجان الرقص", meta: "2024", text: "تغطية كاملة لعرض ثقافي بمشاركة فنانين دوليين: تصوير المسرح والمقابلات والبروفات ولقطات ما بعد العرض، بمونتاج وموسيقى سينمائية." },
-      { title: "افتتاح الجناح الهندي، مركز إكسبو دبي", meta: "2022–2024", text: "اختيرنا لتغطية الافتتاح: عروض تراثية وكلمات لشخصيات رسمية وكشف الجناح. تصوير بعدة كاميرات ولقطات بطائرة مسيّرة ومونتاج مباشر، استُخدمت للتوثيق والإعلام والأرشيف." },
-      { title: "عرض أزياء MERAKI، الموسم الثاني", meta: "دبي، 2023", text: "كل الفقرات من منصة العرض إلى الكواليس، بمقاطع ملخّصة ومقاطع تشويقية ومونتاجات أزياء." },
-      { title: "حفل مهتاب فيرك في دبي", meta: "2022", text: "فريق الإنتاج والإعلام لحفل موسيقي حي ومسابقة تصفيف العمائم: لقطات المسرح والجمهور والكواليس وتصوير كامل ومقاطع ترويجية." },
-      { title: "برنامج حواري، مهرجان الإمارات للأفلام القصيرة", meta: "2021", text: "برنامج حواري عن صناعة الأفلام سُجّل في استوديونا بإضاءة وهندسة صوت وتسجيل بعدة كاميرات وديكور مصمّم للموضوع." },
-      { title: "Better Together، ميدان فري زون", meta: "حفل VIP", text: "فيديو بزوايا متعددة وصور عفوية وجماعية ومحتوى مرئي لوسائل التواصل والاستخدام الداخلي." },
-      { title: "نادي أورا دبي", meta: "دبي", text: "نظّمنا الفعالية ووثّقنا أبرز لحظاتها، مع تجهيز طاولة للعميل وإدارة كل التفاصيل من البداية حتى النهاية." },
-      { title: "حفل أريجيت سينغ الموسيقي", meta: "الإمارات", text: "شاشات SMD (LED) وتصوير وإنتاج فيديو وبث مباشر للحفل كاملاً." },
+      { cat: "حفل غنائي • 2022", title: "مهتاب فيرك مباشرة في دبي", text: "لقطات المسرح والجمهور والكواليس وتصوير الحفل كاملاً." },
+      { cat: "برنامج حواري • 2021", title: "برنامج حواري عن صنّاع الأفلام", text: "سُجّل لمهرجان الإمارات للأفلام القصيرة بعدة كاميرات وصوت استوديو." },
+      { cat: "رأس السنة • 2024", title: "فندق ريكسوس دبي", text: "تركيب شاشات LED وتغطية بالكاميرات لحفل رأس السنة." },
+      { cat: "حفل شركة • 2025", title: "الحفل السنوي لبوسطن ساينتيفيك", text: "تجهيز الفعالية والكلمات الرئيسية وصور الموظفين وفيديو ملخص." },
+      { cat: "حياة ليلية", title: "أورا كلوب دبي", text: "نظّمنا الحدث ووثّقناه، مع تجهيز فاخر للطاولات وإدارة كل التفاصيل." },
+      { cat: "فعالية VIP", title: "«Better Together»، ميدان فري زون", text: "فيديو متعدد الزوايا وتصوير عفوي وجماعي ومواد مرئية للعلامة." },
+      { cat: "عرض أزياء • 2023", title: "عرض أزياء MERAKI، الموسم الثاني", text: "عرض الأزياء والكواليس ومقاطع ملخصة وإعلانية." },
+      { cat: "مهرجان ثقافي • 2024", title: "مهرجان الباليه الروسي", text: "تصوير المسرح والمقابلات والبروفات وأبرز لحظات العرض." },
+      { cat: "حفل موسيقي", title: "شاشات SMD LED وبث مباشر", text: "تصوير فوتوغرافي وفيديو وبث مباشر لحفل في الإمارات." },
     ],
   },
-  clients: {
-    title: "يثق بنا",
-    names: ["ميدان فري زون", "مطار دبي الدولي", "فندق ومنتجع نوفوتيل", "نادي الشارقة للغولف والرماية", "AASA CP Holding", "مهرجان الإمارات للأفلام القصيرة", "Be Unique Group", "VIBE Creations Media", "Digital Fashion Leading", "TEPA رواد الأعمال التاميل", "Miss Cosmos Queen", "إكسبو 2020 دبي", "Holly Dreams Productions"],
+  work: { kicker: "أعراس وبورتريه", title: "معرض الأعراس والبورتريه", close: "إغلاق", prev: "السابق", next: "التالي", open: "فتح الصورة" },
+  clients: { kicker: "يثقون بنا", title: "عملاء عملنا معهم" },
+  collab: {
+    kicker: "شراكات",
+    title: "لنعمل معاً",
+    intro: "نرحّب بالشراكات والتعاون طويل الأمد والعقود مع:",
+    items: [
+      "منسّقو الأعراس والفعاليات",
+      "منظمو عروض الأزياء",
+      "المجالس الثقافية",
+      "أقسام العلاقات العامة والتسويق في الشركات",
+      "الجهات الحكومية والمؤسسية",
+      "الفنادق وقاعات المناسبات والمطوّرون العقاريون",
+    ],
   },
-  work: { title: "تصوير الأعراس", close: "إغلاق", prev: "السابق", next: "التالي", open: "فتح الصورة" },
-  partner: {
-    title: "اعملوا معنا",
-    text: "نقبل الفعاليات المنفردة وشراكات الموردين طويلة الأمد والعقود مع:",
-    list: ["منظّمي الأعراس والفعاليات", "منظّمي عروض الأزياء", "المجالس الثقافية", "فرق العلاقات العامة والتسويق", "الجهات الحكومية والمؤسسات", "الفنادق والقاعات والمطوّرين العقاريين"],
-    close: "دعونا نحيي فعاليتكم القادمة باحترافية وإبداع ولمسة سينمائية.",
+  leadership: {
+    kicker: "القيادة التنفيذية • منذ 2012",
+    title: "أصحاب الرؤية وراء SK EVENTS",
+    people: [
+      { initials: "SJ", role: "الرئيس التنفيذي (CEO)", name: "Sunny Janjowa", text: "يقود الرؤية الإبداعية وتصميم الفعاليات الفاخرة وشراكات العملاء في الإمارات منذ 2012." },
+      { initials: "KSA", role: "المدير العام (MD)", name: "Kafeel Saeed Azhar", text: "يقود العمليات الاستراتيجية وتنفيذ فعاليات الشركات وجودة الإنتاج الإعلامي في أنحاء الإمارات." },
+    ],
   },
   contact: {
-    title: "اسألوا عن موعدكم",
-    intro: "أخبرونا بما تحتاجون ومتى، وسنردّ عليكم عبر واتساب.",
-    name: "الاسم", phone: "رقم الهاتف أو واتساب", service: "ما الذي تحتاجونه", date: "التاريخ", place: "المدينة أو المكان", message: "ملاحظات أخرى",
+    kicker: "تواصلوا معنا",
+    title: "لنخطط لفعاليتكم القادمة",
+    intro: "تواصلوا مباشرة مع فريقنا لتنظيم الأعراس وفعاليات الشركات وحجوزات التصوير في الإمارات.",
+    labels: { ceo: "الرئيس التنفيذي", md: "المدير العام", hq: "المقر", phone: "الهاتف / واتساب", email: "البريد الإلكتروني", ig: "إنستغرام" },
+    hq: "دبي والشارقة، الإمارات (منذ 2012)",
+    whatsapp: "راسلونا على واتساب",
+    name: "الاسم *", namePh: "أدخلوا الاسم الكامل",
+    phone: "رقم الهاتف / واتساب (الإمارات) *",
+    service: "الخدمة المطلوبة",
     services: [
-      { value: "wedding", label: "تصوير وفيديو الأعراس والنكاح" },
-      { value: "video", label: "تغطية فعاليات أو شركات" },
-      { value: "product", label: "جلسة تصوير أو تصوير منتجات" },
-      { value: "other", label: "تنظيم فعاليات أو شاشات LED أو غير ذلك" },
+      { value: "wedding", label: "تنظيم الأعراس والنكاح" },
+      { value: "video", label: "التصوير والسينماتوغرافي" },
+      { value: "product", label: "جلسة تصوير إبداعية أو منتجات" },
+      { value: "other", label: "تنظيم فعالية أو فعالية شركة أو حفل كبير" },
     ],
-    submit: "إرسال الاستفسار", sending: "جارٍ الإرسال",
+    emirate: "الإمارة / الموقع",
+    emirates: [
+      { value: "Dubai", label: "دبي" },
+      { value: "Sharjah", label: "الشارقة" },
+      { value: "Abu Dhabi", label: "أبوظبي" },
+      { value: "Ajman / RAK / Fujairah", label: "عجمان / رأس الخيمة / الفجيرة" },
+    ],
+    date: "تاريخ الفعالية", message: "تفاصيل الفعالية", messagePh: "أخبرونا عن فعاليتكم...",
+    submit: "إرسال الاستفسار إلى SK Events", sending: "جارٍ الإرسال",
     done: "وصل استفساركم، وسنردّ عليكم عبر واتساب.",
     error: "تعذّر الإرسال. تحقّقوا من رقم الهاتف أو راسلونا عبر واتساب.",
-    areas: "الشارقة، الإمارات العربية المتحدة، والبنجاب، باكستان",
   },
+  footer: { line: "تأسست 2012 • إدارة فعاليات وتصوير متميز في الإمارات", ceo: "الرئيس التنفيذي", md: "المدير العام" },
 };
 
 export const content: Record<Lang, Copy> = { en, ar };

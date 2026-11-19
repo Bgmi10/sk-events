@@ -1,23 +1,35 @@
 @import "tailwindcss";
 
-/* Palette taken from the SK Events logo: black, white and its red. */
+/* Dark and gold palette from the draft design the client expected. Change colours here only. */
 @theme {
-  --color-paper: #ffffff;   /* page */
-  --color-pearl: #f3f3f3;   /* alternate band */
-  --color-ink: #0a0a0a;     /* text, logo black */
-  --color-stone: #5c5c5c;   /* muted text */
-  --color-red: #d8091b;     /* logo red: buttons, active states, hairlines */
-  --color-redDeep: #a80615; /* red used as text or hover */
+  --color-gold-400: #e5c158;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b59020;
+  --color-dark-900: #09090b;
+  --color-dark-800: #121216;
+  --color-dark-700: #1c1c22;
 }
 @theme inline {
-  /* Instrument Serif and Albert Sans have no Arabic glyphs, so Arabic falls through to Noto Naskh automatically. */
-  --font-display: "Instrument Serif", "Noto Naskh Arabic Variable", serif;
-  --font-sans: "Albert Sans Variable", "Noto Naskh Arabic Variable", system-ui, sans-serif;
+  /* Playfair Display and Plus Jakarta Sans have no Arabic glyphs, so Arabic falls through to Noto Naskh automatically. */
+  --font-serif: "Playfair Display", "Noto Naskh Arabic Variable", serif;
+  --font-sans: "Plus Jakarta Sans Variable", "Noto Naskh Arabic Variable", system-ui, sans-serif;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
-body { background: var(--color-paper); color: var(--color-ink); }
-:focus-visible { outline: 2px solid var(--color-red); outline-offset: 3px; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { background: var(--color-dark-900); color: #e5e7eb; }
+::selection { background: var(--color-gold-500); color: #000; }
+:focus-visible { outline: 2px solid var(--color-gold-500); outline-offset: 3px; }
 
-/* No animations in this version. */
+.gold-gradient { background: linear-gradient(135deg, #e5c158 0%, #d4af37 50%, #9e7b16 100%); }
+.gold-text-gradient {
+  background: linear-gradient(135deg, #f3d98b 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.glass-nav {
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
